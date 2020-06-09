@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,
+                                minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"/>
+    <title>webview index</title>
+    <!-- way 1 <body onload="myfun()"> -->
+    <!--<script type="text/javascript">
+    　　function myfun() { 　　
+            var nickname = document.getElementById("nickname");　
+            nickname.value = "匿名";
+      　} 　　
+    </script>-->
+
+    <!-- way 2 window.onload -->
+    <script type="text/javascript">
+        window.onload=function(){
+            var nickname = document.getElementById("nickname");　
+            nickname.value = "匿名";
+            alert("window.onload"); // will not show
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        function ok() {
+            slack.jsMessage("哈哈,I am from webview");
+        }
+
+        function javaCallJs(msg) {
+            var nickname = document.getElementById("nickname");　
+            nickname.value = G.topsid;
+        }
+    </script>
+
+    <style>
+        .result-box .result-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px; // //上 0px  左右自动     下 25px
+            background-repeat: no-repeat; //属性设置是否及如何重复背景图像
+            background-position: center;   //背景位置居中
+            background-size: cover;      /*background-size的cover特定值会保持图像本身的宽高比例，将图片缩放到正好完全覆盖定义背景的区域。*/
+            display: block;  //变成块状，这个属性一定要加，要不然不显示。因为<i>标签不是块级元素
+        }
+        .result-box .result-fail{
+            background-image:url(http://i8.pdim.gs/d6c7588a479e657e4d589a54f6075c8b.png) ;
+        }
+    </style>
+
+</head>
+<!--<body onload="myfun()">-->
+<body >
+    <!--test i ing -->
+    <li>
+        <div class="result-box">
+            <i class="result-icon result-fail"></i>
+        </div>
+    </li>
+    <input type="text" id="nickname" name="NickName" value="slack"/><br/><br/>
+    <input type="button" value="js call java" onclick="ok()">
+</body>
+</html>
