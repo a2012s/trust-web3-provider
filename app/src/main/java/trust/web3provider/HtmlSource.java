@@ -50,14 +50,13 @@ public class HtmlSource extends AppCompatActivity {
 
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
+       // webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
 
 //        inputJS(webView);
      //   webView.loadUrl("https://app.compound.finance");
 
         webView.setWebViewClient(new MyWebViewClient());
-        //webView.loadUrl("https://www.sogou.com/");
-        //webView.loadUrl("http://public.rongcloud.cn/view/D4F444BE2D94D760329F3CF38B4AE35C");
+
 
 
         //js调用安卓的requestAccounts;安卓调用js的 window.ethereum.setAddress(addr)方法
@@ -70,15 +69,13 @@ public class HtmlSource extends AppCompatActivity {
                 //pickFile();
 
 
-
-
             }
 
         });
 
-       // webView.loadUrl("https://app.compound.finance");
+        webView.loadUrl("https://app.compound.finance");
        // webView.loadUrl("file:///android_asset/demo.html");
-        webView.loadUrl("file:///android_asset/jsbridge.html");
+       // webView.loadUrl("file:///android_asset/jsbridge.html");
     }
 
     private void inputJS(WebView view) {
@@ -88,7 +85,7 @@ public class HtmlSource extends AppCompatActivity {
         long time1 = System.currentTimeMillis();
         try {
             Resources res = getResources();
-            InputStream in = res.openRawResource(trust.web3provider.R.raw.trustmin12);
+            InputStream in = res.openRawResource(trust.web3provider.R.raw.trustmin13);
 
             byte[] b = new byte[in.available()];
             int readLen = in.read(b);
@@ -160,37 +157,6 @@ public class HtmlSource extends AppCompatActivity {
 
 
 
-//            view.loadUrl("javascript:window.local_obj.showSource('<head>'+" +
-//                    "document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-
-
-//            String url2 = "";
-//            try {
-//                Resources res = getResources();
-//                InputStream in = res.openRawResource(R.raw.plus);
-//
-//                byte[] b = new byte[in.available()];
-//                int readLen = in.read(b);
-//                url2 = new String(b);//; String.format("Len: %1$s\n%2$s", readLen, new String(b));
-//
-//                // ((TextView) findViewById(R.id.out)).setText(jsStr);
-//                // Log.e(TAG, jsStr);
-//            } catch (Exception e) {
-//                // ((TextView) findViewById(R.id.out)).setText(e.getMessage());
-//                Log.e(TAG, "加载错误 " + e.getMessage());
-//            }
-//
-//            // view.loadUrl(url2);
-//            view.evaluateJavascript(url2, new ValueCallback<String>() {//将读取的js字符串注入webview中
-//                @Override
-//                public void onReceiveValue(String value) {//js与native交互的回调函数
-//                    Log.d(TAG, "value=" + value);
-//                }
-//            });
-
-
-//            view.evaluateJavascript("javascript:window.local_obj.showSource('<head>'+" +
-//                    "document.getElementsByTagName('html')[0].innerHTML+'</head>');", null);
 
             String newJs = " console.log(\"ua=\"+ navigator.userAgent);";
 
